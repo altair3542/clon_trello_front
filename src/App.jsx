@@ -1,14 +1,24 @@
 import { Routes, Route } from 'react-router-dom'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Home from './pages/Home'
+import PrivateRoute from './components/PrivateRoute'
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/login" element={<div>Inicio de sesión</div>} />
-      <Route path="/register" element={<div>Registro</div>} />
-      <Route path="/" element={<div>Inicio</div>} />
-      <Route path="/board/:boardId" element={<div>Detalles del Tablero</div>} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/" element={
+        <PrivateRoute>
+          <Home />
+        </PrivateRoute>
+      } />
+      <Route path="/board/:boardId" element={
+        <PrivateRoute>
+          <div>Detalles del Tablero</div>
+        </PrivateRoute>
+      } />
     </Routes>
   )
 }
-
-
