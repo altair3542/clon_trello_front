@@ -15,7 +15,7 @@ export default function Home() {
   }
 
   const handleCreateBoard = async (e) => {
-    e.preventDefauilt()
+    e.preventDefault()
     const newBoard = await createBoard(boardName)
     setBoards([...boards, newBoard])
     setBoardName('')

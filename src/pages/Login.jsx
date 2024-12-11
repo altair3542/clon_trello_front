@@ -9,6 +9,7 @@ export default function Login(){
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log("Intentando iniciar sesión");
     try {
       const response = await api.post('/token/', { username, password })
       localStorage.setItem('token', response.data.access)
